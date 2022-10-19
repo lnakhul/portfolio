@@ -1,0 +1,134 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Plight",
+	"patterns": [
+		{
+			"include": "#comment"
+		},
+		{
+			"include": "#string"
+		},
+		{
+			"include": "#keyword"
+		},
+		{
+			"include": "#number"
+		},
+		{
+			"include": "#operator"
+		},
+		{
+			"include": "#identifier"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"beginCaptures": {
+						"0": {
+							"name": "comment.block.plight"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "comment.block.plight"
+						}
+					},
+					"name": "comment.block.plight"
+				},
+				{
+					"begin": "//",
+					"beginCaptures": {
+						"0": {
+							"name": "comment.line.double-slash.plight"
+						}
+					},
+					"end": "$",
+					"name": "comment.line.double-slash.plight"
+				}
+			]
+		},
+		"identifier": {
+			"patterns": [
+				{
+					"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+					"name": "variable.other.plight"
+				}
+			]
+		},
+		"keyword": {
+			"patterns": [
+				{
+					"match": "\\b(?:if|else|while|for|return|break|continue|struct|enum|union|typedef|using|namespace|import|export|as|new|delete|sizeof|alignof|typeof|cast|static|const|extern|inline|virtual|override|abstract|final|private|protected|public|internal|external|operator|this|super|true|false|null|var|let|func|class|interface|trait|impl|module|package|import|export|as|new|delete|sizeof|alignof|typeof|cast|static|const|extern|inline|virtual|override|abstract|final|private|protected|public|internal|external|operator|this|super|true|false|null|var|let|func|class|interface|trait|impl|module|package)\\b",
+					"name": "keyword.control.plight"
+				}
+			]
+		},
+		"number": {
+			"patterns": [
+				{
+					"match": "\\b(?:0x[0-9a-fA-F]+|0b[01]+|0o[0-7]+|[0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?)\\b",
+					"name": "constant.numeric.plight"
+				}
+			]
+		},
+		"operator": {
+			"patterns": [
+				{
+					"match": "\\+\\+|--|\\+|-|\\*|/|%|\\^|&|\\||~|!|\\?|:|\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=|>>=|==|!=|<=|>=|<|>|&&|\\|\\||\\+=|-=|\\*=|/=|%=|\\^=|&=|\\|=|<<|>>|>>>=|<<=",
+					"name": "keyword.operator.plight"
+				}
+			]
+		},
+		"string": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.plight"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.plight"
+						}
+					},
+					"name": "string.quoted.double.plight",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.plight"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.plight"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.plight"
+						}
+					},
+					"name": "string.quoted.single.plight",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.plight"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.p"
+}
